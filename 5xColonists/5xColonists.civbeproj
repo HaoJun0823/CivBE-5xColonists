@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Deploy" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Default</Configuration>
+    <ProjectGuid>{a5a79976-7913-4692-a26c-4ebe8de10b0c}</ProjectGuid>
+    <Name>5xColonists</Name>
+    <Guid>0934e18a-d733-4224-a081-a19b32f5291c</Guid>
+    <ModVersion>5</ModVersion>
+    <Stability>Stable</Stability>
+    <Teaser>This mod at the beginning of the game, Make the select the colonists effect increased 500%, It can be used in Rising tide.</Teaser>
+    <Description>This mod at the beginning of the game, Make the select the colonists effect increased 500%, It can be used in Rising tide. Have fun!
+
+The Mod does not give the player five colonists units start.
+After selecting the leader, you will select "artists, aristocrats, engineer, inventor, refugees", these choices will increase 500%, from +2 or +4, up to +10 or + 20, This Mod just modify the original five options, support Rising tide.
+
+github:https://github.com/HaoJun0823/CivBE-5xColonists</Description>
+    <Authors>HaoJun0823</Authors>
+    <SpecialThanks>All players and modders.</SpecialThanks>
+    <AffectsSavedGames>true</AffectsSavedGames>
+    <MinCompatibleSaveVersion>0</MinCompatibleSaveVersion>
+    <SupportsSinglePlayer>true</SupportsSinglePlayer>
+    <SupportsMultiplayer>true</SupportsMultiplayer>
+    <SupportsHotSeat>true</SupportsHotSeat>
+    <SupportsMac>true</SupportsMac>
+    <AssemblyName>5XColonistsBonus</AssemblyName>
+    <RootNamespace>5XColonistsBonus</RootNamespace>
+    <ModReferences />
+    <ModProperties />
+    <ModActions>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>5xColonists.sql</FileName>
+      </Action>
+    </ModActions>
+    <Homepage>https://steamcommunity.com/id/HaoJun0823/</Homepage>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Default' ">
+    <OutputPath>.</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Package Only' ">
+    <PackageMod>true</PackageMod>
+    <DeployMod>false</DeployMod>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Deploy Only' ">
+    <PackageMod>false</PackageMod>
+    <DeployMod>true</DeployMod>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="5xColonists.sql">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Firaxis\ModBuddy\CivBEMod.targets" />
+</Project>
